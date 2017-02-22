@@ -1,0 +1,64 @@
+---
+layout: post
+title: 编译 GNU Smalltalk
+categories: building
+---
+
+## 获取源码
+
+[GNU Smalltalk][gst] 使用 [Git][git] 管理其源码仓库，可以使用如下命令克隆其[官方 Git][gst-git] 仓库：
+
+~~~shell
+git clone git://git.sv.gnu.org/smalltalk.git
+~~~
+
+## 编译
+
+### 生成 `configure`
+
+[GNU Smalltalk][gst] 使用 [Autotools][autotools] 作为其构建系统(build system)。直接从 [GNU Smalltalk][gst] 官方仓库克隆的源码仓库并不包含 `configure` 脚本，需要通过如下命令生成：
+
+~~~shell
+autoreconf -ifv
+~~~
+
+`autoreconf` 是 [Autotools][autotools] 工具集中的一个辅助工具，会根据当前工程中的 `configure.ac`, `Makefile.am` 等文件生成对应的 `configure` 脚本，`Makefile` 文件等。修改了 `configure.ac` 或 `Makefile.am` 之类的文件之后，需要重新执行上述 `autoreconf` 命令。
+
+### 编译依赖
+
+[GNU Smalltalk][gst] 主要是通过 C 语言实现的，因此 C 编译器是必须的编译依赖。另外一些常见的开发工具，例如 GNU Make 也是必须的。另外，[GNU Smalltalk][gst] 中还包含一些额外的模块，其编译可能需要额外的依赖。
+
+安装编译依赖时，可以根据 `configure` 脚本的提示和自己的需要逐个使用当前系统的包管理工具逐个安装。
+
+### 编译步骤
+
+安装完必要的编译依赖之后，就可以使用编译 [Autotools][autotools] 工程的标准步骤来编译 [GNU Smalltalk][gst] 了：
+
+~~~shell
+mkdir build
+cd build
+../configure --prefix=$HOME/opt/gst
+make
+make check
+make install
+~~~
+
+新创建另外的编译目录 `build` 以免编译过程中生成的文件扰乱源码目录。`make check` 会执行 [GNU Smalltalk][gst] 的回归测试，以确保当前编译的 [GNU Smalltalk][gst] 系统可以正常工作。执行 `make install` 之后，新编译的 [GNU Smalltalk][gst] 系统会被安装到当前用户主目录下的 `opt/gst` 目录中。
+
+可以使用如下命令启动新的 [GNU Smalltalk][gst] 系统：
+
+~~~shell
+$ ~/opt/gst/bin/gst
+GNU Smalltalk ready
+
+st> 
+~~~
+
+可以将 [GNU Smalltalk][gst] 安装目录添加到当前用户的 `PATH` 环境变量中以直接使用 `gst` 启动。
+
+[comment]: <> (Link list)
+
+[gst]: http://smalltalk.gnu.org/
+[git]: https://git-scm.com/
+[gst-git]: git://git.sv.gnu.org/smalltalk.git
+[autotools]: https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html
