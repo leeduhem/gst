@@ -63,20 +63,4 @@ categories: building
 
 [comment]: <> (Link list)
 
-[gst]: http://smalltalk.gnu.org/
-[git]: https://git-scm.com/
-[gst-git]: git://git.sv.gnu.org/smalltalk.git
-[autotools]: https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html
-[autoconf]: https://www.gnu.org/software/autoconf/autoconf.html
-[m4]: https://www.gnu.org/software/m4/m4.html
-[hllca]: https://en.wikipedia.org/wiki/High-level_language_computer_architecture
-[smalltalk]: http://stephane.ducasse.free.fr/FreeBooks/BlueBook/Bluebook.pdf
-[jit]: https://en.wikipedia.org/wiki/Just-in-time_compilation
-[lightning]: https://www.gnu.org/software/lightning/
-[gst-manual]: https://www.gnu.org/software/smalltalk/manual/gst.html
-[gst-manual-base]: https://www.gnu.org/software/smalltalk/manual-base/gst-base.html
-[gst-manual-libs]: https://www.gnu.org/software/smalltalk/manual-libs/gst-libs.html
-[emacs]: https://www.gnu.org/software/emacs/
-[gdb]: https://www.gnu.org/software/gdb/
-[gdbinit]: https://sourceware.org/gdb/onlinedocs/gdb/gdbinit-man.html
-[c]: https://en.wikipedia.org/wiki/C_(programming_language)
+{% include Links.markdown %}

@@ -146,40 +146,4 @@ categories: building
 
 [links]: <> (Link list)
 
-[gst]: http://smalltalk.gnu.org/
-[git]: https://git-scm.com/
-[gst-git]: git://git.sv.gnu.org/smalltalk.git
-[autotools]: https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html
-[autoconf]: https://www.gnu.org/software/autoconf/autoconf.html
-[m4]: https://www.gnu.org/software/m4/m4.html
-[automake]: https://www.gnu.org/software/automake/
-[hllca]: https://en.wikipedia.org/wiki/High-level_language_computer_architecture
-[smalltalk]: http://stephane.ducasse.free.fr/FreeBooks/BlueBook/Bluebook.pdf
-[jit]: https://en.wikipedia.org/wiki/Just-in-time_compilation
-[lightning]: https://www.gnu.org/software/lightning/
-[gst-manual]: https://www.gnu.org/software/smalltalk/manual/gst.html
-[gst-manual-base]: https://www.gnu.org/software/smalltalk/manual-base/gst-base.html
-[gst-manual-libs]: https://www.gnu.org/software/smalltalk/manual-libs/gst-libs.html
-[gst-package]: https://www.gnu.org/software/smalltalk/manual/html_node/Packages.html
-[emacs]: https://www.gnu.org/software/emacs/
-[gdb]: https://www.gnu.org/software/gdb/
-[gdbinit]: https://sourceware.org/gdb/onlinedocs/gdb/gdbinit-man.html
-[c]: https://en.wikipedia.org/wiki/C_(programming_language)
-[shell]: https://en.wikipedia.org/wiki/Shell_script
-[autoconf-manual]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/index.html
-[autoconf-writing-autoconf-input]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Writing-Autoconf-Input.html
-[autoconf-macro-index]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Autoconf-Macro-Index.html
-[sed]: https://www.gnu.org/software/sed/manual/sed.html
-[gcc-sync-builtins]: https://gcc.gnu.org/onlinedocs/gcc/_005f_005fsync-Builtins.html
-[glibc]: https://www.gnu.org/software/libc/
-[autoconf-output-variables]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Setting-Output-Variables.html
-[automake-macro-index]: https://www.gnu.org/software/automake/manual/automake.html#Macro-Index
-[autoconf-autotest]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Using-Autotest.html
-[autoconf-portable-shell]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Portable-Shell.html
-[autoconf-writing-tests]: https://www.gnu.org/savannah-checkouts/gnu/autoconf/manual/autoconf-2.69/html_node/Writing-Tests.html
-[gmake]: https://www.gnu.org/software/make/
-[automake-uniform]: https://www.gnu.org/software/automake/manual/html_node/Uniform.html
-[automake-strictness]: https://www.gnu.org/software/automake/manual/html_node/Strictness.html
-[gnu-coding-standards]: https://www.gnu.org/prep/standards/standards.html
-[automake-aclocal]: https://www.gnu.org/software/automake/manual/html_node/aclocal-Invocation.html
-[gmake-double-clone]: https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html
+{% include Links.markdown %}

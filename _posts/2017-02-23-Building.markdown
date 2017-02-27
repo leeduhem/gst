@@ -58,7 +58,4 @@ st>
 
 [comment]: <> (Link list)
 
-[gst]: http://smalltalk.gnu.org/
-[git]: https://git-scm.com/
-[gst-git]: git://git.sv.gnu.org/smalltalk.git
-[autotools]: https://www.gnu.org/software/automake/manual/html_node/Autotools-Introduction.html
+{% include Links.markdown %}
