@@ -37,3 +37,4 @@
 [gnu-coding-standards]: https://www.gnu.org/prep/standards/standards.html
 [automake-aclocal]: https://www.gnu.org/software/automake/manual/html_node/aclocal-Invocation.html
 [gmake-double-clone]: https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html
+[gst-invocation]: https://www.gnu.org/software/smalltalk/manual/html_node/Invocation.html
