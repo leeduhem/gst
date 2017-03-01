@@ -94,7 +94,7 @@ main(int argc, const char **argv)
             {
 ```
 
-`loaded_files` 记录了命令行指定的每一个待加载 [Smalltalk][smalltalk] 源码文件。依次加载这些文件，若代加载文件名字为 `-` 则使用 `gst_process_stdin` 读取标准输入，否则用 `gst_process_file` 加载该文件。
+`loaded_files` 记录了命令行指定的每一个待加载 [Smalltalk][smalltalk] 源码文件。依次加载这些文件，若待加载文件名字为 `-` 则使用 `gst_process_stdin` 读取标准输入，否则用 `gst_process_file` 加载该文件。
 
 ```C
   if (n_loaded_files == 0)
