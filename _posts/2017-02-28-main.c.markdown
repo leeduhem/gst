@@ -77,7 +77,7 @@ main(int argc, const char **argv)
     exit (result);
 ```
 
-`gst_initialize` 用来初始化 [GNU Smalltalk][gst] 虚拟机，`kernel_dir` 是 `kernel` 目录的位置，`image_file` 是 [GNU Smalltalk] image 文件的路径。
+`gst_initialize` 用来初始化 [GNU Smalltalk][gst] 虚拟机，`kernel_dir` 是 `kernel` 目录的位置，`image_file` 是 [GNU Smalltalk][gst] image 文件的路径。
 
 ```C
   for (file = loaded_files; file < &loaded_files[n_loaded_files]; file++)
