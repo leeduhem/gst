@@ -15,12 +15,14 @@ categories: tools
 
 ## 头文件包含
 
-    #ifdef HAVE_CONFIG_H
-    #include "config.h"
-    #endif
-    
-    #include "gstpub.h"
-    #include "getopt.h"
+```C
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
+#include "gstpub.h"
+#include "getopt.h"
+```
 
 `config.h` 包含配置脚本 `configure` 检测到的构建环境相关的信息。
 
@@ -28,74 +30,92 @@ categories: tools
 
 ## 命令行参数解析
 
-    void
-    parse_args (int argc, const char **argv)
+```C
+void
+parse_args (int argc, const char **argv)
+{
+  while ((ch = getopt_long (argc, (char **) argv, OPTIONS,
+			    long_options, NULL)) != -1)
     {
-      while ((ch = getopt_long (argc, (char **) argv, OPTIONS,
-    			    long_options, NULL)) != -1)
-        {
+```
 
 `parse_args` 使用 `getopt_long` 来进行命令行解析。
 
-          switch (ch)
-    	{
-    	case 'c':
-    	  gst_set_var (GST_MAKE_CORE_FILE, true);
-    	  break;
+```C
+      switch (ch)
+        {
+        case 'c':
+          gst_set_var (GST_MAKE_CORE_FILE, true);
+          break;
+```
 
 `gst_set_var` 用来修改 [GNU Smalltalk][gst] 虚拟机内部的一些全局状态，其实现代码为 `libgst/interp.c:_gst_set_var`。
 
-    	  gst_smalltalk_args (argc - optind, argv + optind);
+```C
+          gst_smalltalk_args (argc - optind, argv + optind);
+```
 
 `gst_smalltalk_args` 用来给将要启动的 [Smalltalk][gst] 代码传递参数，可以通过 `Smalltalk arguments` 访问这些参数。
 
 ## main 函数
 
-    int
-    main(int argc, const char **argv)
-    {
-      loaded_files =
-        (struct loaded_file *) alloca (sizeof (struct loaded_file) * argc);
+```C
+int
+main(int argc, const char **argv)
+{
+  loaded_files =
+    (struct loaded_file *) alloca (sizeof (struct loaded_file) * argc);
 
-        parse_args (argc, argv);
+    parse_args (argc, argv);
+```
 
 `main` 首先调用 `parse_args` 来解析命令行参数，解析的结果保存在全局变量中。
 
-      result = gst_initialize (kernel_dir, image_file, flags);
-      if (result)
-        exit (result);
+```C
+  result = gst_initialize (kernel_dir, image_file, flags);
+  if (result)
+    exit (result);
+```
 
 `gst_initialize` 用来初始化 [GNU Smalltalk][gst] 虚拟机，`kernel_dir` 是 `kernel` 目录的位置，`image_file` 是 [GNU Smalltalk] image 文件的路径。
 
-      for (file = loaded_files; file < &loaded_files[n_loaded_files]; file++)
+```C
+  for (file = loaded_files; file < &loaded_files[n_loaded_files]; file++)
+    {
+      /* - by itself indicates standard input */
+      if (!file->kernel_path && !strcmp (file->file_name, "-"))
+        gst_process_stdin (stdin_prompt);
+
+      else
         {
-          /* - by itself indicates standard input */
-          if (!file->kernel_path && !strcmp (file->file_name, "-"))
-            gst_process_stdin (stdin_prompt);
-    
-          else
-        	{
-        	  errno = 0;
-        	  if (!gst_process_file (file->file_name,
-        				 file->kernel_path ? GST_DIR_BASE : GST_DIR_ABS))
-        	    {
+          errno = 0;
+          if (!gst_process_file (file->file_name,
+                                 file->kernel_path ? GST_DIR_BASE : GST_DIR_ABS))
+            {
+```
 
 `loaded_files` 记录了命令行指定的每一个待加载 [Smalltalk][smalltalk] 源码文件。依次加载这些文件，若代加载文件名字为 `-` 则使用 `gst_process_stdin` 读取标准输入，否则用 `gst_process_file` 加载该文件。
 
-      if (n_loaded_files == 0)
-        gst_process_stdin (stdin_prompt);
+```C
+  if (n_loaded_files == 0)
+    gst_process_stdin (stdin_prompt);
+```
 
 若是没有在命令行指定任何 [Smalltalk][smalltalk] 源码文件，则直接进入交互模式。
 
-      if (snapshot_after_load)
-        gst_msg_sendf (NULL, "%v %o snapshot: %o", 
-    		   gst_class_name_to_oop ("ObjectMemory"),
-                       gst_str_msg_send (gst_class_name_to_oop ("File"),
-    				     "image", NULL));
+```C
+  if (snapshot_after_load)
+    gst_msg_sendf (NULL, "%v %o snapshot: %o", 
+		   gst_class_name_to_oop ("ObjectMemory"),
+                   gst_str_msg_send (gst_class_name_to_oop ("File"),
+				     "image", NULL));
+```
 
 若是在命令行指定了 `-S` 选项，则在退出时保存新的 [GNU Smalltalk][gst] image 文件。上述 `gst_msg_sendf` 调用相当于 `ObjectMemory snapshot: (File image)`。
 
-      gst_invoke_hook (GST_ABOUT_TO_QUIT);
+```C
+  gst_invoke_hook (GST_ABOUT_TO_QUIT);
+```
       
 `gst_invoke_hook` 用来调用预定义的一些 hook。上如调用相当于 `ObjectMemory changed: #aboutToQuit`。
 
