@@ -148,9 +148,9 @@ gsticon.o: gsticon.ico
 	cd $(srcdir) && echo ProgramIcon ICON `$(CYGPATH_W) gsticon.ico` | \
 		$(WINDRES) -o $(abs_builddir)/gsticon.o
 
-gst.im: $(bin_PROGRAMS) $(srcdir)/kernel/stamp-classes $(WINEWRAPPERDEP)
+KERNEL_FILES = $(wildcard $(srcdir)/kernel/*.st)
+gst.im: $(bin_PROGRAMS) $(KERNEL_FILES) $(WINEWRAPPERDEP)
 	$(GST) -iQ /dev/null
-
 
 ###########################################################
 #
@@ -182,8 +182,8 @@ dist_noinst_DATA += \
 #
 ###########################################################
 
--include $(srcdir)/kernel/Makefile.frag
-all-local: $(srcdir)/kernel/stamp-classes
+-include $(top_builddir)/kernel/Makefile.frag
+all-local: $(top_builddir)/kernel/stamp-classes
 
 # The slow rule for building the stamp-classes files uses gst-package, and
 # depends on packages.xml in order to run when the list of files in the
@@ -191,13 +191,14 @@ all-local: $(srcdir)/kernel/stamp-classes
 # could actually do without double-colon rules by using another stamp file
 # which depends on packages.xml and rebuilds all the stamp-classes files.
 
-$(srcdir)/kernel/Makefile.frag: $(srcdir)/packages.xml $(WINEWRAPPERDEP)
-	(echo '$$(srcdir)/kernel/stamp-classes: \'; \
+$(top_builddir)/kernel/Makefile.frag: $(srcdir)/packages.xml gst-tool$(EXEEXT) gst.im $(WINEWRAPPERDEP)
+	$(mkdir_p) $(top_builddir)/kernel
+	(echo '$$(top_builddir)/kernel/stamp-classes: \'; \
 	  $(GST_PACKAGE) --list-files Kernel --vpath --srcdir="$(srcdir)" $(srcdir)/packages.xml | \
 	    tr -d \\r | tr \\n ' '; \
 	echo; \
-	echo '	touch $$(srcdir)/kernel/stamp-classes') \
-	  > $(srcdir)/kernel/Makefile.frag
+	echo '	touch $$(top_builddir)/kernel/stamp-classes') \
+	  > $(top_builddir)/kernel/Makefile.frag
 
 all-local:
 clean-local::
@@ -206,8 +207,6 @@ dist-hook::
 	$(GST_PACKAGE) --dist \
 	  --distdir="$(distdir)" --srcdir="$(srcdir)" \
 	  $(srcdir)/packages.xml
-	cp -p $(srcdir)/kernel/stamp-classes $(distdir)/kernel/stamp-classes
-	cp -p $(srcdir)/kernel/Makefile.frag $(distdir)/kernel/Makefile.frag
 
 # Build an image after installing the data; install-data runs after
 # install-exec, so the gst executable is already in bindir.

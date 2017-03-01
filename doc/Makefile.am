@@ -88,8 +88,8 @@ install-data-local: install-man
 
 PUBLISHED_CLASSES = Smalltalk.* SystemExceptions.* NetClients.* VFS.*
 
-$(srcdir)/blox.texi: $(top_srcdir)/packages/blox/tk/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/blox.texi: $(top_builddir)/packages/blox/tk/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=BloxTK | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -97,8 +97,8 @@ $(srcdir)/blox.texi: $(top_srcdir)/packages/blox/tk/stamp-classes
 	  rm -f $(srcdir)/blox.texi
 	test -f $(srcdir)/blox.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/sockets.texi: $(top_srcdir)/packages/sockets/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/sockets.texi: $(top_builddir)/packages/sockets/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=Sockets | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -106,8 +106,8 @@ $(srcdir)/sockets.texi: $(top_srcdir)/packages/sockets/stamp-classes
 	  rm -f $(srcdir)/sockets.texi
 	test -f $(srcdir)/sockets.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/complex.texi: $(top_srcdir)/packages/complex/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/complex.texi: $(top_builddir)/packages/complex/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=Complex | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -115,8 +115,8 @@ $(srcdir)/complex.texi: $(top_srcdir)/packages/complex/stamp-classes
 	  rm -f $(srcdir)/complex.texi
 	test -f $(srcdir)/complex.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/debug.texi: $(top_srcdir)/packages/debug/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/debug.texi: $(top_builddir)/packages/debug/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=DebugTools | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -124,8 +124,8 @@ $(srcdir)/debug.texi: $(top_srcdir)/packages/debug/stamp-classes
 	  rm -f $(srcdir)/debug.texi
 	test -f $(srcdir)/debug.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/zlib.texi: $(top_srcdir)/packages/zlib/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/zlib.texi: $(top_builddir)/packages/zlib/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=ZLib | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -133,8 +133,8 @@ $(srcdir)/zlib.texi: $(top_srcdir)/packages/zlib/stamp-classes
 	  rm -f $(srcdir)/zlib.texi
 	test -f $(srcdir)/zlib.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/dbi.texi: $(top_srcdir)/packages/dbi/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/dbi.texi: $(top_builddir)/packages/dbi/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=DBI | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -142,8 +142,8 @@ $(srcdir)/dbi.texi: $(top_srcdir)/packages/dbi/stamp-classes
 	  rm -f $(srcdir)/dbi.texi
 	test -f $(srcdir)/dbi.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/i18n.texi: $(top_srcdir)/packages/iconv/stamp-classes $(top_srcdir)/packages/i18n/stamp-classes
-	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D)) \
+$(srcdir)/i18n.texi: $(top_builddir)/packages/iconv/stamp-classes $(top_builddir)/packages/i18n/stamp-classes
+	files=`$(GST_PACKAGE) $(patsubst %, %/package.xml, $(^D:$(top_builddir)/%=$(top_srcdir)/%)) \
 	  --load --list-files=Iconv --list-files=I18N | \
 	  sed s,^,-f,`; \
 	IFS=`printf '\n\t'`; \
@@ -151,7 +151,7 @@ $(srcdir)/i18n.texi: $(top_srcdir)/packages/iconv/stamp-classes $(top_srcdir)/pa
 	  rm -f $(srcdir)/i18n.texi
 	test -f $(srcdir)/i18n.texi && touch $(srcdir)/gst-libs.texi 
 
-$(srcdir)/classes.texi: $(top_srcdir)/kernel/stamp-classes
+$(srcdir)/classes.texi: $(top_builddir)/kernel/stamp-classes
 	$(GST_DOC) -o $(srcdir)/classes.texi $(PUBLISHED_CLASSES) || \
 	  rm -f $(srcdir)/classes.texi
 	test -f $(srcdir)/classes.texi && touch $(srcdir)/gst-base.texi
