@@ -214,7 +214,8 @@ AC_OUTPUT
 
 `AC_CONFIG_FILES` 用来指示 [Autoconf][autoconf] 在调用 `AC_OUTPUT` 的时候要生成哪些文件。例如 `AC_CONFIG_FILES(gnu-smalltalk.pc)` 表示使用模板文件 `gnu-smalltalk.pc.in` 作为输入文件，将其中的[Autoconf 输出变量][autoconf-output-variables]替换为其对应的值以生成文件 `gnu-smalltalk.pc`。
 
-调用 `AC_OUTPUT` 以在 `configure` 脚本中生成实际的文件生成代码。
+调用 `AC_OUTPUT` 以在 `configure` 脚本中生成实际的文件生成代码。`AC_OUTPUT` 会生成脚本 `config.status` 并执行该脚本，由该脚本完成所有的配置(configuration)动作，例如生成 `AC_CONFIG_FILES` 指定的文件，等等。
+
 
 [links]: <> (Link list)
 
