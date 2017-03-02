@@ -38,3 +38,8 @@
 [automake-aclocal]: https://www.gnu.org/software/automake/manual/html_node/aclocal-Invocation.html
 [gmake-double-clone]: https://www.gnu.org/software/make/manual/html_node/Double_002dColon.html
 [gst-invocation]: https://www.gnu.org/software/smalltalk/manual/html_node/Invocation.html
+[flex]: https://en.wikipedia.org/wiki/Flex_(lexical_analyser_generator)
+[bison]: https://www.gnu.org/software/bison/
+[libtool]: https://www.gnu.org/software/libtool/libtool.html
+[bytecode]: https://en.wikipedia.org/wiki/Bytecode
+[binutils]: https://www.gnu.org/software/binutils/
