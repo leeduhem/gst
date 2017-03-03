@@ -43,3 +43,4 @@
 [libtool]: https://www.gnu.org/software/libtool/libtool.html
 [bytecode]: https://en.wikipedia.org/wiki/Bytecode
 [binutils]: https://www.gnu.org/software/binutils/
+[taggedPointer]: https://en.wikipedia.org/wiki/Tagged_pointer
