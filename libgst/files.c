@@ -360,7 +360,7 @@ _gst_initialize (const char *kernel_dir,
   /* For the image file, it is okay to find none if we can/should rebuild
      the image file.  */
   if (image_file
-      && (flags & (GST_REBUILD_IMAGE | GST_MAYBE_REBUILD_IMAGE)) == 0
+      && !rebuild_image_flags
       && !_gst_file_is_readable (image_file))
     {
       if (flags & GST_IGNORE_BAD_IMAGE_PATH)
@@ -470,7 +470,7 @@ _gst_initialize (const char *kernel_dir,
       setvbuf (stdout, NULL, _IOLBF, 1024);
     }
 
-  if (rebuild_image_flags == 0)
+  if (!rebuild_image_flags)
     loadBinary = abortOnFailure = true;
   else
     {
