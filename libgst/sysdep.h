@@ -153,7 +153,7 @@ extern uint64_t _gst_get_ns_time (void)
 extern time_t _gst_get_time (void)
   ATTRIBUTE_HIDDEN;
 
-/* Returns whether FILE1 is newer (or last modified at the same time as)
+/* Returns whether FILE1 is newer than (or last modified at the same time as)
    FILE2.  Returns true if FILE2 is not readable, false if FILE1 is not
    readable.  */
 extern mst_Boolean _gst_file_is_newer (const char *file1, const char *file2)
