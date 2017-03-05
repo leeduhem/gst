@@ -197,7 +197,7 @@ static size_t new_num_fields (size_t oldNumFields);
 
 /* Instantiate the OOPs that are created before the first classes
    (true, false, nil, the Smalltalk dictionary, the symbol table
-   and Processor, the sole instance of ProcessorScheduler.  */
+   and Processor, the sole instance of ProcessorScheduler).  */
 static void init_proto_oops (void);
 
 /* Look for the index at which KEYOOP resides in IDENTITYDICTIONARYOOP
@@ -211,7 +211,7 @@ static ssize_t identity_dictionary_find_key (OOP identityDictionaryOOP,
 static size_t identity_dictionary_find_key_or_nil (OOP identityDictionaryOOP,
 						   OOP keyOOP);
 
-/* assume the value is an integer already or key does not exist, increase the
+/* Assume the value is an integer already or key does not exist, increase the
    value by inc or set the value to inc */
 static int _gst_identity_dictionary_at_inc (OOP identityDictionaryOOP,
                                             OOP keyOOP,

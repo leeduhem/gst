@@ -1,3 +1,11 @@
+2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
+
+	* byte.h: Fix typo in comments.
+	* dict.h: Improve comments.
+	* dict.c (new_num_fields): Ditto.
+	* gst.h: Ditto.
+	* sysdep.h: Ditto.
+
 2016-12-30  Lee Duhem  <lee.duhem@gmail.com>
 
 	* byte.c (_gst_compile_bytecodes): Subtract the free space.

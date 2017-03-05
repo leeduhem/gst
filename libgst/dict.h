@@ -468,14 +468,14 @@ extern OOP _gst_class_variable_dictionary (OOP class_oop)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* This finds the key SYMBOL into the dictionary POOLOOP and, if any,
+/* This finds the key SYMBOL in the dictionary POOLOOP and, if any,
    in all of its super-namespaces.  Returns the association.  */
 extern OOP _gst_namespace_association_at (OOP poolOOP,
 					  OOP symbol)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* This finds the key SYMBOL into the dictionary POOLOOP and, if any,
+/* This finds the key SYMBOL in the dictionary POOLOOP and, if any,
    in all of its super-namespaces.  Returns the value.  */
 extern OOP _gst_namespace_at (OOP poolOOP,
 			      OOP symbol)
@@ -517,7 +517,7 @@ extern OOP _gst_find_class (OOP classNameOOP)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* Look for an implementation of SELECTOR (a Symbol) into CLASS_OOP's
+/* Look for an implementation of SELECTOR (a Symbol) in CLASS_OOP's
    method dictionary or in the method dictionary of a superclass.  */
 extern OOP _gst_find_class_method (OOP class_oop,
 				   OOP selector)
@@ -647,7 +647,7 @@ extern void _gst_free_cobject (OOP cObjOOP)
   ATTRIBUTE_HIDDEN;
 
 /* Loads the contents of the global variables from the Smalltalk dictionary
-   after an image has been restored.  PRIM_TABLE_MATCHES if true if the
+   after an image has been restored.  PRIM_TABLE_MATCHES is true if the
    table of primitives is already set up correctly.  */
 extern mst_Boolean _gst_init_dictionary_on_image_load (mst_Boolean prim_table_matches) 
   ATTRIBUTE_HIDDEN;
