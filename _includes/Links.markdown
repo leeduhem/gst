@@ -44,3 +44,4 @@
 [bytecode]: https://en.wikipedia.org/wiki/Bytecode
 [binutils]: https://www.gnu.org/software/binutils/
 [taggedPointer]: https://en.wikipedia.org/wiki/Tagged_pointer
+[readline]: https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
