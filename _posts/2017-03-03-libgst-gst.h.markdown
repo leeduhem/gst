@@ -1,6 +1,6 @@
 ---
 layout: post
-title: libgst 的公开接口(gst.h)
+title: libgst 的公开接口 (gst.h)
 categories: libgst
 ---
 `libgst` 中的 `gst.h` 提供了一些最常用的数据类型和宏的定义，会被 `gstpub.h` 包含，因此也是 libgst 公开接口的一部分。
