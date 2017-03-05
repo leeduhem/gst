@@ -72,3 +72,6 @@ snprintfv/snprintfv/compat.stamp
 tests/gst.im
 tests/testsuite.dir/
 tests/testsuite.log
+
+cscope.files
+cscope.out
