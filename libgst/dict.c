@@ -858,8 +858,7 @@ create_classes_pass1 (const class_definition *ci,
       else
 	{
           superclass = (gst_class) OOP_TO_OBJ (superClassOOP);
-          superclass->subClasses =
-	    FROM_INT (TO_INT (superclass->subClasses) + 1);
+          superclass->subClasses = INCR_INT (superclass->subClasses);
 	}
     }
 
@@ -1225,7 +1224,7 @@ init_c_symbols ()
 void
 init_primitives_dictionary ()
 {
-  OOP primDictionaryOOP = _gst_binding_dictionary_new (512, _gst_smalltalk_dictionary);
+  OOP primDictionaryOOP = _gst_binding_dictionary_new (NUM_PRIMITIVES, _gst_smalltalk_dictionary);
   int i;
 
   add_smalltalk ("VMPrimitives", primDictionaryOOP);
@@ -1517,7 +1516,7 @@ new_num_fields (size_t oldNumFields)
 {
   /* Find a power of two that is larger than oldNumFields */
 
-  int n = 1;
+  int n;
 
   /* Already a power of two? duplicate the size */
   if COMMON ((oldNumFields & (oldNumFields - 1)) == 0)
@@ -1525,7 +1524,7 @@ new_num_fields (size_t oldNumFields)
 
   /* Find the next power of two by setting all bits to the right of
      the leftmost 1 bit to 1, and then incrementing.  */
-  for (; oldNumFields & (oldNumFields + 1); n <<= 1)
+  for (n = 1; oldNumFields & (oldNumFields + 1); n <<= 1)
     oldNumFields |= oldNumFields >> n;
 
   return oldNumFields + 1;
@@ -1545,9 +1544,8 @@ find_key_or_nil (OOP dictionaryOOP,
   numFixedFields = OOP_FIXED_FIELDS (dictionaryOOP);
   numFields = NUM_WORDS (dictionary) - numFixedFields;
   index = scramble (OOP_INDEX (keyOOP));
-  count = numFields;
 
-  for (; count; count--)
+  for (count = numFields; count; count--)
     {
       index &= numFields - 1;
       associationOOP = dictionary->data[numFixedFields + index];
@@ -2025,7 +2023,7 @@ _gst_to_wide_cstring (OOP stringOOP)
   string = (gst_unicode_string) OOP_TO_OBJ (stringOOP);
   len = oop_num_fields (stringOOP);
   result = (wchar_t *) xmalloc (len + 1);
-  if (sizeof (wchar_t) == 4)
+  if (sizeof (wchar_t) == sizeof(string->chars[0]))
     memcpy (result, string->chars, len * sizeof (wchar_t));
   else
     for (p = result, i = 0; i < len; i++)

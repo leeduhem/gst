@@ -1,5 +1,17 @@
 2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
 
+	* cint.c: Include ffi.h properly.
+	* dict.c (create_classes_pass1): Use INCR_INT.
+	(init_c_symbols): Replace magic number with corresponding macro.
+	(new_num_fields): Move variable assignment closer to its use.
+	(find_key_or_nil): Ditto.
+	(_gst_to_wide_cstring): Replace magic number with meaningful
+	expression.
+	* files.c (_gst_initialize): Simplify code.
+	* save.c (save_object): Improve readability of magic number.
+
+2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
+
 	* byte.h: Fix typo in comments.
 	* dict.h: Improve comments.
 	* dict.c (new_num_fields): Ditto.

@@ -56,7 +56,7 @@
 #include "re.h"
 #include "pointer-set.h"
 
-#include "ffi.h"
+#include <ffi.h>
 #include <ltdl.h>
 
 #ifdef HAVE_GETGRNAM

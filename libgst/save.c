@@ -419,7 +419,7 @@ save_object (int imageFd,
     abort ();
 
   numBytes = sizeof (OOP) * TO_INT (object->objSize);
-  if (numBytes < 262144)
+  if (numBytes < 256 * 1024)
     {
       saveObject = alloca (numBytes);
       fixup_object (oop, saveObject, object, numBytes);
