@@ -45,3 +45,8 @@
 [binutils]: https://www.gnu.org/software/binutils/
 [taggedPointer]: https://en.wikipedia.org/wiki/Tagged_pointer
 [readline]: https://cnswww.cns.cwru.edu/php/chet/readline/rltop.html
+[libtool-ltdl]: https://www.gnu.org/software/libtool/manual/html_node/Using-libltdl.html
+[interpreter]: https://en.wikipedia.org/wiki/Interpreter_(computing)
+[memory-management]: https://en.wikipedia.org/wiki/Memory_management
+[gc]: https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)
+[gst-base-classes]: https://www.gnu.org/software/smalltalk/manual-base/gst-base.html#Base-classes
