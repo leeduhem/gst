@@ -75,7 +75,7 @@
 /* The number of OOPs in the system.  This is exclusive of Character,
    True, False, and UndefinedObject (nil) oops, which are
    built-ins.  */
-#define INITIAL_OOP_TABLE_SIZE	(1024 * 128 + BUILTIN_OBJECT_BASE)
+#define INITIAL_OOP_TABLE_SIZE	(1024 * 128 + FIRST_OOP_INDEX)
 #define MAX_OOP_TABLE_SIZE	(1 << 23)
 
 /* The number of free OOPs under which we trigger GCs.  0 is not
