@@ -647,7 +647,7 @@ extern void _gst_free_cobject (OOP cObjOOP)
   ATTRIBUTE_HIDDEN;
 
 /* Loads the contents of the global variables from the Smalltalk dictionary
-   after an image has been restored.  PRIM_TABLE_MATCHES if true if the
+   after an image has been restored.  PRIM_TABLE_MATCHES is true if the
    table of primitives is already set up correctly.  */
 extern mst_Boolean _gst_init_dictionary_on_image_load (mst_Boolean prim_table_matches) 
   ATTRIBUTE_HIDDEN;
