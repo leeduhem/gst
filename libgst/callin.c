@@ -386,7 +386,7 @@ _gst_type_name_to_oop (const char *name)
   OOP result;
   char buf[300];
 
-  sprintf (buf, "^%s!", name);
+  snprintf (buf, sizeof (buf), "^%s!", name);
 
   result = _gst_eval_expr (buf);
   return (result);
