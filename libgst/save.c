@@ -90,7 +90,6 @@
 /* The binary image file has the following format:
 	header
 	complete oop table
-	global oop variable data
 	object data */
 
 #define EXECUTE      "#! /usr/bin/env gst -aI\nexec gst -I \"$0\" -a \"$@\"\n"
