@@ -1225,7 +1225,7 @@ init_c_symbols ()
 void
 init_primitives_dictionary ()
 {
-  OOP primDictionaryOOP = _gst_binding_dictionary_new (512, _gst_smalltalk_dictionary);
+  OOP primDictionaryOOP = _gst_binding_dictionary_new (NUM_PRIMITIVES, _gst_smalltalk_dictionary);
   int i;
 
   add_smalltalk ("VMPrimitives", primDictionaryOOP);
@@ -2025,7 +2025,7 @@ _gst_to_wide_cstring (OOP stringOOP)
   string = (gst_unicode_string) OOP_TO_OBJ (stringOOP);
   len = oop_num_fields (stringOOP);
   result = (wchar_t *) xmalloc (len + 1);
-  if (sizeof (wchar_t) == 4)
+  if (sizeof (wchar_t) == sizeof(string->chars[0]))
     memcpy (result, string->chars, len * sizeof (wchar_t));
   else
     for (p = result, i = 0; i < len; i++)
