@@ -50,3 +50,8 @@
 [memory-management]: https://en.wikipedia.org/wiki/Memory_management
 [gc]: https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)
 [gst-base-classes]: https://www.gnu.org/software/smalltalk/manual-base/gst-base.html#Base-classes
+[gst-image]: https://www.gnu.org/software/smalltalk/manual/html_node/Loading-or-creating-an-image.html
+[endianness]: https://en.wikipedia.org/wiki/Endianness
+[copy-on-write]: https://en.wikipedia.org/wiki/Copy-on-write
+[cache-prefetching]: https://en.wikipedia.org/wiki/Cache_prefetching
+[branch-prediction]: https://en.wikipedia.org/wiki/Branch_predication
