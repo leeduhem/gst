@@ -837,7 +837,10 @@ _gst_invoke_croutine (OOP cFuncOOP,
 
   funcAddr = cobject_value (cFuncOOP);
   if (!funcAddr)
-    return (NULL);
+    {
+      INC_RESTORE_POINTER (incPtr);
+      return (NULL);
+    }
 
   p_slot = pointer_map_insert (cif_cache, cFuncOOP);
   if (!*p_slot)

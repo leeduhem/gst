@@ -469,7 +469,10 @@ _gst_class_name_to_oop (const char *name)
       key = _gst_intern_string (prev_p);
       result = dictionary_at (result, key);
       if (IS_NIL (result))
-	return NULL;
+	{
+	  free (s);
+	  return NULL;
+	}
     }
 
   free (s);
