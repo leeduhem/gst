@@ -131,7 +131,7 @@ enum {
   LN_FORCE = 1,
 
   /* If LN_ABSOLUTE is also set, causes _gst_line_number to emit an absolute
-     ine number and use that line number as the offset.  If not,
+     line number and use that line number as the offset.  If not,
      _gst_line_number will emit line numbers relatives to that line.  */
   LN_RESET = 2,
 
