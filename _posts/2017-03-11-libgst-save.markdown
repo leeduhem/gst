@@ -669,7 +669,7 @@ fixup_object (OOP oop, gst_object dest, gst_object src, int numBytes)
 }
 ```
 
-
+[TODO]: <> (Explain fixup_object in detail)
 
 
 [links]: <> (Link list)
