@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GNU Smalltalk 的初始化 (files.h 和 files.c)
+title: GNU Smalltalk 的初始化 (libgst/files.c)
 categories: libgst
 ---
 [GNU Smalltalk][gst] 初始化函数 `_gst_initialize` 定义在 `libgst` 目录的 `files.c` 中，其公开接口在 `files.h` 文件中声明。
