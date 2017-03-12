@@ -468,14 +468,14 @@ extern OOP _gst_class_variable_dictionary (OOP class_oop)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* This finds the key SYMBOL into the dictionary POOLOOP and, if any,
+/* This finds the key SYMBOL in the dictionary POOLOOP and, if any,
    in all of its super-namespaces.  Returns the association.  */
 extern OOP _gst_namespace_association_at (OOP poolOOP,
 					  OOP symbol)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* This finds the key SYMBOL into the dictionary POOLOOP and, if any,
+/* This finds the key SYMBOL in the dictionary POOLOOP and, if any,
    in all of its super-namespaces.  Returns the value.  */
 extern OOP _gst_namespace_at (OOP poolOOP,
 			      OOP symbol)
@@ -517,7 +517,7 @@ extern OOP _gst_find_class (OOP classNameOOP)
   ATTRIBUTE_PURE 
   ATTRIBUTE_HIDDEN;
 
-/* Look for an implementation of SELECTOR (a Symbol) into CLASS_OOP's
+/* Look for an implementation of SELECTOR (a Symbol) in CLASS_OOP's
    method dictionary or in the method dictionary of a superclass.  */
 extern OOP _gst_find_class_method (OOP class_oop,
 				   OOP selector)
@@ -587,7 +587,7 @@ extern OOP _gst_identity_dictionary_at_put (OOP identityDictionaryOOP,
 					    OOP valueOOP) 
   ATTRIBUTE_HIDDEN;
 
-/* Allocates and returns a new C (NULL-terminated) string that has the same
+/* Allocates and returns a new C (NUL-terminated) string that has the same
    contents as STRINGOOP.  Even if there are embedded NULs, the
    allocated area has always a size of "stringOOP size + 1" bytes.  */
 extern char *_gst_to_cstring (OOP stringOOP) 
