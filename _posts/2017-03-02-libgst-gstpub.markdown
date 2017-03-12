@@ -1,6 +1,6 @@
 ---
 layout: post
-title: libgst 的公开接口 (gstpub.h 和 gstpub.c)
+title: libgst 的公开接口 (libgst/gstpub.h 和 libgst/gstpub.c)
 categories: libgst
 ---
 `libgst` 提供了 [GNU Smalltalk][gst] 的实现，包括编译器和[虚拟机][hllca]，其中的代码最终会被编译为库 `libgst.la` 供其他代码链接。`gstpub.h` 提供了 `libgst` 的公开接口，而 `gstpub.c` 则提供了该接口的实现。
