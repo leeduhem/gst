@@ -176,7 +176,7 @@ struct object_s
 #define IS_OOP(oop) \
   (! IS_INT(oop) )
 
-/* Keep these in sync with _gst_sizes, in dict.c.
+/* Keep these in sync with _gst_log2_sizes, in dict.c.
    FIXME: these should be exported in a pool dictionary.  */
 enum gst_indexed_kind {
   GST_ISP_FIXED = 0,
