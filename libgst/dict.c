@@ -1023,7 +1023,8 @@ init_smalltalk_dictionary (void)
   int i, numFeatures;
 
   _gst_current_namespace = _gst_smalltalk_dictionary;
-  for (numFeatures = 0; feature_strings[numFeatures]; numFeatures++);
+  for (numFeatures = 0; feature_strings[numFeatures]; numFeatures++)
+	  ;
 
   featuresArray = new_instance_with (_gst_array_class, numFeatures,
 		     		     &featuresArrayOOP);
