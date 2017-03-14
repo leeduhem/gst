@@ -1517,7 +1517,7 @@ new_num_fields (size_t oldNumFields)
 {
   /* Find a power of two that is larger than oldNumFields */
 
-  int n = 1;
+  int n;
 
   /* Already a power of two? duplicate the size */
   if COMMON ((oldNumFields & (oldNumFields - 1)) == 0)
@@ -1525,7 +1525,7 @@ new_num_fields (size_t oldNumFields)
 
   /* Find the next power of two by setting all bits to the right of
      the leftmost 1 bit to 1, and then incrementing.  */
-  for (; oldNumFields & (oldNumFields + 1); n <<= 1)
+  for (n = 1; oldNumFields & (oldNumFields + 1); n <<= 1)
     oldNumFields |= oldNumFields >> n;
 
   return oldNumFields + 1;
