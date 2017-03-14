@@ -231,8 +231,8 @@ static void create_class (const class_definition *ci);
    NUMMETACLASSSUBCLASSES in the instance variable "subclasses" of the
    metaclass.  */
 static void create_metaclass (OOP class_oop,
-			      int numSubClasses,
-			      int numMetaclassSubClasses);
+			      int numMetaclassSubClasses,
+			      int numSubClasses);
 
 /* Finish initializing the metaclass METACLASSOOP.  */
 static void init_metaclass (OOP metaclassOOP);
@@ -1030,8 +1030,8 @@ init_smalltalk_dictionary (void)
   for (i = 0; i < numFeatures; i++)
     featuresArray->data[i] = _gst_intern_string (feature_strings[i]);
 
-  sprintf (fullVersionString, "GNU Smalltalk version %s",
-	   VERSION PACKAGE_GIT_REVISION);
+  snprintf (fullVersionString, sizeof (fullVersionString),
+	   "GNU Smalltalk version %s", VERSION PACKAGE_GIT_REVISION);
 
   add_smalltalk ("Smalltalk", _gst_smalltalk_dictionary);
   add_smalltalk ("Version", _gst_string_new (fullVersionString));

@@ -75,7 +75,7 @@
 /* The number of OOPs in the system.  This is exclusive of Character,
    True, False, and UndefinedObject (nil) oops, which are
    built-ins.  */
-#define INITIAL_OOP_TABLE_SIZE	(1024 * 128 + BUILTIN_OBJECT_BASE)
+#define INITIAL_OOP_TABLE_SIZE	(1024 * 128 + FIRST_OOP_INDEX)
 #define MAX_OOP_TABLE_SIZE	(1 << 23)
 
 /* The number of free OOPs under which we trigger GCs.  0 is not
@@ -413,7 +413,7 @@ extern gst_object _gst_alloc_words (size_t size)
 
 /* Grows the allocated memory to SPACESIZE bytes, if it's not there
    already. */
-extern void _gst_grow_memory_to (size_t size) 
+extern void _gst_grow_memory_to (size_t spaceSize)
   ATTRIBUTE_HIDDEN;
 
 /* Grow the OOP table to NEWSIZE pointers and initialize the newly

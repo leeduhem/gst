@@ -1,5 +1,16 @@
 2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
 
+	* callin.c (_gst_type_name_to_oop): Replace sprintf with snprintf.
+	(_gst_class_name_to_oop): Clean properly before return.
+	* cint.c (_gst_invoke_croutine): Clean properly before return.
+	* dict.c (create_metaclass): Synchronize prototype with definition.
+	(init_smalltalk_dictionary): Replace sprintf with snprintf.
+	* oop.c (_gst_alloc_obj): Reduce size properly.
+	* oop.h (INITIAL_OOP_TABLE_SIZE): Sychronize with comment.
+	(_gst_grow_memory_to): Synchronize prototype with definition.
+
+2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
+
 	* cint.c: Include ffi.h properly.
 	* dict.c (create_classes_pass1): Use INCR_INT.
 	(init_c_symbols): Replace magic number with corresponding macro.
