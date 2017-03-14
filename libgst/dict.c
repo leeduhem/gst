@@ -828,13 +828,13 @@ _gst_init_dictionary (void)
 
   _gst_init_symbols_pass1 ();
 
-  create_classes_pass1 (class_info, sizeof (class_info) / sizeof (class_info[0]));
+  create_classes_pass1 (class_info, COUNT_OF (class_info));
 
   init_proto_oops();
   _gst_init_symbols_pass2 ();
   init_smalltalk_dictionary ();
 
-  create_classes_pass2 (class_info, sizeof (class_info) / sizeof (class_info[0]));
+  create_classes_pass2 (class_info, COUNT_OF (class_info));
 
   init_runtime_objects ();
   _gst_tenure_all_survivors ();
@@ -1310,9 +1310,7 @@ _gst_init_dictionary_on_image_load (mst_Boolean prim_table_matches)
 
   _gst_restore_symbols ();
 
-  for (ci = class_info; 
-       ci < class_info + sizeof(class_info) / sizeof(class_definition);
-       ci++)
+  for (ci = class_info; ci < class_info + COUNT_OF (class_info); ci++)
     if (ci->reloadAddress)
       {
 	*ci->classVar = dictionary_at (_gst_smalltalk_dictionary,
