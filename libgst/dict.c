@@ -231,8 +231,8 @@ static void create_class (const class_definition *ci);
    NUMMETACLASSSUBCLASSES in the instance variable "subclasses" of the
    metaclass.  */
 static void create_metaclass (OOP class_oop,
-			      int numSubClasses,
-			      int numMetaclassSubClasses);
+			      int numMetaclassSubClasses,
+			      int numSubClasses);
 
 /* Finish initializing the metaclass METACLASSOOP.  */
 static void init_metaclass (OOP metaclassOOP);
