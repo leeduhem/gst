@@ -553,6 +553,11 @@ extern OOP _gst_nil_oop
 #define MIN(x, y) 		( ((x) > (y)) ? (y) : (x) )
 #endif
 
+#ifndef COUNT_OF
+#define COUNT_OF(x) ((sizeof(x)/sizeof(0[x])) / \
+		((size_t)(!(sizeof(x) % sizeof(0[x])))))
+#endif
+
 #include "ansidecl.h"
 #include "mathl.h"
 #include "socketx.h"

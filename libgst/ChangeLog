@@ -1,5 +1,12 @@
 2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
 
+	* gstpriv.h (COUNT_OF): New macro.
+	* dict.c (_gst_init_dictionary, _gst_init_dictionary_on_image_load):
+	Use COUNT_OF.
+	* sym.c (_gst_init_symbols_pass1): Ditto.
+
+2017-04-26  Lee Duhem  <lee.duhem@gmail.com>
+
 	* callin.c (_gst_type_name_to_oop): Replace sprintf with snprintf.
 	(_gst_class_name_to_oop): Clean properly before return.
 	* cint.c (_gst_invoke_croutine): Clean properly before return.
