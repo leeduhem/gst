@@ -1594,7 +1594,7 @@ _gst_init_symbols_pass2 (void)
      to the hash table entries.  */
   for (bs = _gst_builtin_selectors_hash;
        bs - _gst_builtin_selectors_hash <
-	 sizeof (_gst_builtin_selectors_hash) / sizeof (_gst_builtin_selectors_hash[0]);
+	 COUNT_OF (_gst_builtin_selectors_hash);
        bs++)
     if (bs->offset != -1)
       {
