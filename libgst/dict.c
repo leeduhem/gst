@@ -858,8 +858,7 @@ create_classes_pass1 (const class_definition *ci,
       else
 	{
           superclass = (gst_class) OOP_TO_OBJ (superClassOOP);
-          superclass->subClasses =
-	    FROM_INT (TO_INT (superclass->subClasses) + 1);
+          superclass->subClasses = INCR_INT (superclass->subClasses);
 	}
     }
 
