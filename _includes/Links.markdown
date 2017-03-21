@@ -55,3 +55,7 @@
 [copy-on-write]: https://en.wikipedia.org/wiki/Copy-on-write
 [cache-prefetching]: https://en.wikipedia.org/wiki/Cache_prefetching
 [branch-prediction]: https://en.wikipedia.org/wiki/Branch_predication
+[ascii]: https://en.wikipedia.org/wiki/Ascii
+[gst-namespace]: https://www.gnu.org/software/smalltalk/manual/gst.html#Namespaces
+[process-scheduler]: https://en.wikipedia.org/wiki/Scheduling_(computing)
+[md5]: https://en.wikipedia.org/wiki/MD5
