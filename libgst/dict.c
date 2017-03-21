@@ -1543,9 +1543,8 @@ find_key_or_nil (OOP dictionaryOOP,
   numFixedFields = OOP_FIXED_FIELDS (dictionaryOOP);
   numFields = NUM_WORDS (dictionary) - numFixedFields;
   index = scramble (OOP_INDEX (keyOOP));
-  count = numFields;
 
-  for (; count; count--)
+  for (count = numFields; count; count--)
     {
       index &= numFields - 1;
       associationOOP = dictionary->data[numFixedFields + index];
