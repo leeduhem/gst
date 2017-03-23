@@ -412,11 +412,8 @@ extern gst_object _gst_alloc_words (size_t size)
   ATTRIBUTE_HIDDEN;
 
 /* Grows the allocated memory to SPACESIZE bytes, if it's not there
-   already.  
-   the memory could not be allocated.  Should be called after the
-   sweep has occurred so that things are contiguous.  Ensures that the
-   OOP table pointers are fixed up to point to the new objects.  */
-extern void _gst_grow_memory_to (size_t size) 
+   already. */
+extern void _gst_grow_memory_to (size_t spaceSize)
   ATTRIBUTE_HIDDEN;
 
 /* Grow the OOP table to NEWSIZE pointers and initialize the newly
