@@ -59,3 +59,9 @@
 [gst-namespace]: https://www.gnu.org/software/smalltalk/manual/gst.html#Namespaces
 [process-scheduler]: https://en.wikipedia.org/wiki/Scheduling_(computing)
 [md5]: https://en.wikipedia.org/wiki/MD5
+[libgst-new_num_fields-algo]: http://graphics.stanford.edu/~seander/bithacks.html#RoundUpPowerOf2
+[gst-gc-incubator]: https://www.gnu.org/software/smalltalk/manual/gst.html#Incubator
+[hash-function]: https://en.wikipedia.org/wiki/Hash_function
+[hash-table]: https://en.wikipedia.org/wiki/Hash_table
+[hash-collision-resolution]: https://en.wikipedia.org/wiki/Hash_table#Collision_resolution
+[hash-open-addressing]: https://en.wikipedia.org/wiki/Open_addressing
