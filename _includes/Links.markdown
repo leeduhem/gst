@@ -65,3 +65,5 @@
 [hash-table]: https://en.wikipedia.org/wiki/Hash_table
 [hash-collision-resolution]: https://en.wikipedia.org/wiki/Hash_table#Collision_resolution
 [hash-open-addressing]: https://en.wikipedia.org/wiki/Open_addressing
+[gst-gc]: https://www.gnu.org/software/smalltalk/manual/gst.html#GC
+[gcc-visibility]: https://gcc.gnu.org/wiki/Visibility
