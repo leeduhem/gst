@@ -255,6 +255,89 @@ _gst_inc_init_registry (void)
 
 ## _gst_init_oop_table
 
+`_gst_init_oop_table` 会在 [GNU Smalltalk][gst] 初始化时被调用，用来创建 OOP 表。
+
+[TODO]: <> (添加链接)
+
+
+
+## _gst_alloc_obj
+
+```C
+gst_object
+_gst_alloc_obj (size_t size,
+                OOP *p_oop)
+{
+  OOP *newAllocPtr;
+  gst_object p_instance;
+
+  size = ROUNDED_BYTES (size);
+
+  /* We don't want to have allocPtr pointing to the wrong thing during
+     GC, so we use a local var to hold its new value */
+  newAllocPtr = _gst_mem.eden.allocPtr + BYTES_TO_SIZE (size);
+
+  if UNCOMMON (size >= _gst_mem.big_object_threshold)
+    return alloc_fixed_obj (size, p_oop);
+
+  if UNCOMMON (newAllocPtr >= _gst_mem.eden.maxPtr)
+    {
+      _gst_scavenge ();
+      newAllocPtr = _gst_mem.eden.allocPtr + BYTES_TO_SIZE (size);
+    }
+
+  p_instance = (gst_object) _gst_mem.eden.allocPtr;
+  _gst_mem.eden.allocPtr = newAllocPtr;
+  *p_oop = alloc_oop (p_instance, _gst_mem.active_flag);
+  p_instance->objSize = FROM_INT (BYTES_TO_SIZE (size));
+
+  return p_instance;
+}
+```
+
+`_gst_alloc_obj` 用来给大小为 `size` 字节的对象分配内存。若是欲分配的新对象为大对象，则直接将其分配在 OldSpace 中；否则该对象将位于 Eden 空间中 `allocPtr` 指向的位置。
+
+`alloc_oop` 定义于 `libgst/oop.inl`，用来给新分配的对象分配 OOP。
+
+## alloc_fixed_obj
+
+```C
+alloc_fixed_obj (size_t size,
+                 OOP *p_oop)
+{
+  gst_object p_instance;
+
+  size = ROUNDED_BYTES (size);
+
+  /* If the object is big enough, we put it directly in oldspace.  */
+  p_instance = (gst_object) _gst_mem_alloc (_gst_mem.old, size);
+  if COMMON (p_instance)
+    goto ok;
+
+  _gst_global_gc (size);
+  p_instance = (gst_object) _gst_mem_alloc (_gst_mem.old, size);
+  if COMMON (p_instance)
+    goto ok;
+
+  compact (0);
+  p_instance = (gst_object) _gst_mem_alloc (_gst_mem.old, size);
+  if UNCOMMON (!p_instance)
+    {
+      /* !!! do something more reasonable in the future */
+      _gst_errorf ("Cannot recover, exiting...");
+      exit (1);
+    }
+
+ok:
+  *p_oop = alloc_oop (p_instance, F_OLD);
+  p_instance->objSize = FROM_INT (BYTES_TO_SIZE (size));
+  return p_instance;
+}
+```
+
+`alloc_fixed_obj` 实际是在 OldSpace 中分配新对象。
+
+## compact
 
 ----
 
