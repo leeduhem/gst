@@ -787,7 +787,7 @@ _gst_alloc_obj (size_t size,
   if UNCOMMON (newAllocPtr >= _gst_mem.eden.maxPtr)
     {
       _gst_scavenge ();
-      newAllocPtr = _gst_mem.eden.allocPtr + size;
+      newAllocPtr = _gst_mem.eden.allocPtr + BYTES_TO_SIZE (size);
     }
 
   p_instance = (gst_object) _gst_mem.eden.allocPtr;
